@@ -1,7 +1,7 @@
 #!/bin/bash
 
-QEMU_VERSION='2.5.0-resin-rc1'
-QEMU_SHA256='8db1c7525848072974580b2e1c79797fc995fd299ee2e4214631574023589782'
+QEMU_VERSION='2.5.0-resin'
+QEMU_SHA256='2e92a1bf9a912db150da2b9b8875ef8ed7ec6a2c476063b448b90cc7327ad430'
 
 # Jenkins build steps
 docker build -t raspbian-mkimage .
