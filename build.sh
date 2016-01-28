@@ -2,8 +2,8 @@
 
 set -o errexit
 
-SUITES='jessie'
-MIRROR='http://archive.raspbian.org/raspbian'
+SUITES='wheezy'
+MIRROR='http://mirror.nus.edu.sg/raspbian/raspbian/'
 REPO='nghiant2710/stock-image'
 LATEST='jessie'
 
@@ -20,7 +20,7 @@ for suite in $SUITES; do
 	cp qemu-arm-static $dir/rootfs/usr/bin
 	chmod +x $dir/rootfs/usr/bin/qemu-arm-static
 	
-	./mkimage.sh -t $REPO:$suite --dir=$dir debootstrap --keyring=/root/.gnupg/pubring.gpg --arch=armhf --include=sudo $suite $MIRROR
+	./mkimage.sh -t $REPO:$suite --dir=$dir debootstrap --verbose --foreign --variant=minbase --keyring=/root/.gnupg/pubring.gpg --arch=armhf --include=sudo $suite $MIRROR
 	rm -rf $dir
 
 	#docker run --rm $REPO:$suite bash -c 'dpkg-query -l' > $suite
